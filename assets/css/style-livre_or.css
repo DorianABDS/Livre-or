@@ -1,0 +1,80 @@
+*{
+    margin : 0;
+    padding: 0;
+}
+
+.button{
+    background-color: #D9998B;
+    padding: 1.2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    filter: drop-shadow(0 10px 10px rgba(0,0,0,0.125));
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: #b47a6d;
+}
+
+.title-h1{
+  color:  #7c4c42;
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+.title-bloc{
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.title-bloc img{
+  width: 5rem;
+}
+.title-h2{
+  margin-top: 2rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.title-h3{
+    padding-bottom: 1rem;
+    margin-top: -1rem;
+}
+
+.card-container {
+  margin: 5rem;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: #8C564A;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.125);  
+  padding: 38px;  
+  filter: drop-shadow(0 30px 10px rgba(0,0,0,0.125));
+  width: 20%;
+  min-height: 45vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-around;
+  
+}
+
+
+.text-card{
+    min-width: 93%;
+    min-height: 35vh;
+    background-color: #F2E0D5;
+    border-radius: 20px;
+}
+
+.text-card p {
+  font-family: inria sans;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 120%;
+  padding: 0.8rem;
+}
+
+.date-time{
+    margin-top: 1rem;
+}
