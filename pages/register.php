@@ -34,7 +34,7 @@ $newInscription = $newIns->register();
             <h1 class="titreh1">Inscription</h1>
             <section class="registration-bloc">
                 <form method="post" action="" class="form">
-                    <input class="input" type="text" name="pseudo" id="pseudo" value="" placeholder="Entrez votre pseudo" required><br /><br />                                 
+                    <input class="input" type="text" name="login" id="login" value="" placeholder="Entrez votre pseudo" required><br /><br />                                 
                     <input class="input" type="password" name="password" id="password" value="" placeholder="Entrez votre mot de passe" required><br /><br />
                     <button type="submit" name="submit" class="button">S'inscrire</button>
                 </form> 

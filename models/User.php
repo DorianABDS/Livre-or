@@ -35,7 +35,7 @@ class User extends Database
                         session_start();
                         $_SESSION['user'] = $user['id'];                       
                         $userNum = new User();                        
-                        header("location: ../index.php");
+                        header("location: login.php");
                         exit(); // Ajout d'un exit() après la redirection
                     } else {
                         $_SESSION['message']  = "Pseudo ou Mot de passe incorrect !";
@@ -68,11 +68,9 @@ class User extends Database
                         "login" => $login,
                         "password" => $password
                     ]);
-                    $req = $req->fetch(PDO::FETCH_ASSOC);
+                    
 
-                    $_SESSION['message']  = "Inscription réussie !";
-
-                    $_SESSION['user'] = $req;
+                    $_SESSION['message']  = "Inscription réussie ! Connectez-vous.";
                     header("location:login.php");
                 }
             } else {
