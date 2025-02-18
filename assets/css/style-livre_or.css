@@ -3,6 +3,12 @@
     padding: 0;
 }
 
+.form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .button{
     background-color: #D9998B;
     padding: 1.2rem;
@@ -14,6 +20,21 @@
 
 .button:hover{
     background-color: #b47a6d;
+}
+
+.searchbar{
+    background-color: #f8efe9;
+    border: 2px solid #D9998B;
+    width: 15rem;
+    padding: 0.8rem;
+    border-radius: 20px;
+}
+
+.search-btn{
+    background-color: #D9998B;
+    border: 3px solid #D9998B;
+    border-radius: 15px;
+    height: 2.6rem;
 }
 
 .title-h1{

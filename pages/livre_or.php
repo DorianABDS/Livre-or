@@ -25,9 +25,12 @@
     <h2 class="title-h2">Commentaires</h2>
 
     <section class="add-search">
-    <form action="" method="post">
+    <form action="" method="post" class="form">
+        
         <button type="submit" class="button" name="add-new-com">Ajouter un commentaire</button>
-        <input class="search" name="searchbar" placeholder="Rechercher un commentaire"><button class="img-magnifier"><img src="../assets/img/loupe.png"</button> 
+        <input class="searchbar" name="searchbar" placeholder="Rechercher un commentaire">
+        <button class="search-btn"><img src="../assets/img/loupe.svg" alt="loupe"></button> 
+        
     </form>
 
     </section>
