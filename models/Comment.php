@@ -4,28 +4,86 @@ require_once('../config/Database.php');
 
 class Comment extends Database
 {
-    private $id;
-    public $comment;
-    private $id_user;
+    private int $id;
+    public string $comment;
+    private int $id_user;
     public int $date;
+    protected PDO $db;
 
-    public function __construct(?int $date)
+    public function __construct(PDO $db, string $comment, int $id_user, int $date = 0, int $id = 0)
     {
-        $this->date = $date ?? time();
+        parent::__construct();
+
+        $this->db = $db;
+        $this->id = $id;
+        $this->comment = $comment;
+        $this->id_user = $id_user;
+        $this->date = $date ?: time();
     }
 
-    public function save()
+    public function id_userGet()
     {
-        $sql = "INSERT INTO comments (comment, id_user, date) VALUES (:comment, :id_user, :date)";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute(['comment' => $this->comment, 'id_user' => $this->id_user, 'date' => $this->date]);
+        return $this->id_user;
     }
 
-    public static function fetchAll()
+    // Getter and Setter for $id
+    public function getId(): int
     {
-        $db = new Database();
-        $sql = "SELECT * FROM comments";
-        $stmt = $db->query($sql);
-        return $stmt->fetchAll();
+        return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    // Getter and Setter for $id_user
+    public function getIdUser(): int
+    {
+        return $this->id_user;
+    }
+
+    public function setIdUser(int $id_user): void
+    {
+        $this->id_user = $id_user;
+    }
+
+    // Getter and Setter for $db
+    public function getDb(): PDO
+    {
+        return $this->db;
+    }
+
+    public function setDb(PDO $db): void
+    {
+        $this->db = $db;
+    }
+
+    // Add a comment
+    public function create(string $comment, int $id_user): bool
+    {
+        try {
+            $sql = "INSERT INTO commentaires (comment, id_user, date) VALUES (:comment, :id_user, NOW())";
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindParam(":comment", $comment);
+            $stmt->bindParam(":id_user", $id_user);
+            return $stmt->execute();
+        } catch (PDOException $e) {
+            echo "Erreur : " . $e->getMessage();
+            return false;
+        }
+    }
+
+    // read the comment
+    public function readAll(): ?array
+    {
+        try {
+            $sql = "SELECT * FROM commentaires ORDER BY date DESC";
+            $stmt = $this->db->query($sql);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "erreur : " . $e->getMessage();
+        }
+        return [];
     }
 }
