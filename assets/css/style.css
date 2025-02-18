@@ -3,3 +3,60 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Reset et styles généraux */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #F2E0D5;
+    color: #333;
+    font-size: 16px;
+}
+
+/* HEADER */
+header {
+    background-color: #8C6B4F;
+    padding: 15px 0;
+    text-align: center;
+}
+
+/* NAVIGATION */
+.barrenav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.barrenav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.barrenav a:hover {
+    background-color: #D9998B;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+    .barrenav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .barrenav a {
+        display: block;
+        padding: 12px;
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+    }
+}
