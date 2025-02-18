@@ -1,26 +1,35 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@font-face {
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 }
 
-/* Reset et styles généraux */
+:root {
+    --base-color: #8C6B4F;
+    --base-primary-bg: #F2E0D5;
+    --base-secondary-bg: #8C564A;
+    --input-color: #D9998B;
+    --text-color: #000;
+    --primary-color: #fff;
+}
+
 * {
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    list-style: none;
 }
 
+html,
 body {
-    background-color: #F2E0D5;
-    color: #333;
     font-size: 16px;
+    color: var(--text-color);
+    background-color: var(--base-primary-bg);
+    font-weight: 400;
+    height: 100vh;
 }
 
 /* HEADER */
 header {
-    background-color: #8C6B4F;
+    background-color: var(--base-color);
     padding: 15px 0;
     text-align: center;
 }
@@ -34,7 +43,7 @@ header {
 
 .barrenav a {
     text-decoration: none;
-    color: white;
+    color: var(--primary-color);
     font-weight: bold;
     padding: 10px 15px;
     border-radius: 5px;
@@ -42,7 +51,7 @@ header {
 }
 
 .barrenav a:hover {
-    background-color: #D9998B;
+    background-color: var(--input-color);
 }
 
 /* RESPONSIVE */
