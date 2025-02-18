@@ -11,14 +11,14 @@
 <header>
     <nav class=barrenav>
         <a href="index.php">Accueil</a>
-        <a href="livre_or.php">Livre d'or</a>
+        <a href="/pages/livre_or.php">Livre d'or</a>
         <?php if (isset($_SESSION['user_id'])): ?>
-            <a href="profile.php">Profil</a>
-            <a href="comments.php">Ajouter un commentaire</a>
+            <a href="/pages/profile.php">Profil</a>
+            <a href="/pages/comments.php">Ajouter un commentaire</a>
             <a href="logout.php">Déconnexion</a>
         <?php else: ?>
-            <a href="register.php">Inscription</a>
-            <a href="connection.php">Connexion</a>
+            <a href="/pages/register.php">Inscription</a>
+            <a href="/pages/login.php">Connexion</a>
         <?php endif; ?>
     </nav>
 </header>
