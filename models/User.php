@@ -54,7 +54,8 @@ class User extends Database
             if (!empty($_POST['login']) && !empty($_POST['password'])) {
                 $login = htmlentities($_POST['login']);
                 $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-                $checklogin = $this->db->prepare("SELECT id FROM utilisateur WHERE login = :login");
+                // Vérifier si l'utilisateur existe déjà
+                $checklogin = $this->db->prepare("SELECT id FROM user WHERE login = :login");
                 $checklogin->execute(["login" => $login]);
 
                 if ($checklogin->fetch()) {
@@ -62,7 +63,7 @@ class User extends Database
                 } else {
 
                     $req = $this->db->prepare("INSERT INTO user (login, password)
-                                          VALUES (:login, :password)");
+                                               VALUES (:login, :password)");
                     $req->execute([
                         "login" => $login,
                         "password" => $password
@@ -72,7 +73,7 @@ class User extends Database
                     $_SESSION['message']  = "Inscription réussie !";
 
                     $_SESSION['user'] = $req;
-                    header("location:connexion.php");
+                    header("location:login.php");
                 }
             } else {
                 $_SESSION['message']  = "Veuillez remplir tous les champs";
