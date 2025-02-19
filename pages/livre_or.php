@@ -14,6 +14,17 @@ $comments = $comment->getComments($limit, $offset);
 // Compter le nombre total de commentaires pour la pagination
 $totalComments = $comment->countComments(); // Assurez-vous que cette méthode fonctionne
 $totalPages = ceil($totalComments / $limit);
+
+$message = "";
+
+if (isset($_POST['add-new-com'])) {
+    if (isset($_SESSION['user'])) {
+        header('Location: comments.php');
+        exit;
+    } else {
+        $message = "Veuillez vous connecter pour laisser un commentaire!";
+    }
+}
 ?>
  
 <!DOCTYPE html>
@@ -43,6 +54,7 @@ $totalPages = ceil($totalComments / $limit);
             <form action="" method="post" class="form">        
                 <button type="submit" class="button btn-add-com" name="add-new-com">Ajouter un commentaire</button>
             </form>
+            <div class="alert-comment"><?= $message ?></div>
         </div>
         <div class="sections">
             <form action="" method="post" class="form"> 
@@ -50,6 +62,7 @@ $totalPages = ceil($totalComments / $limit);
                 <button class="search-btn"><img src="../assets/img/loupe.svg" alt="loupe">
                 </button> 
             </form>
+        
     </div>
     </section>
 
@@ -59,10 +72,10 @@ $totalPages = ceil($totalComments / $limit);
         <div class="card-content">
             <h3 class="title-h3"><?= $comment['login']; ?></h3>
             <div class="text-card">
-                <p>"<?= nl2br(htmlspecialchars($comment['comment'])); ?>"</p>
+                <p>"<?= nl2br(($comment['comment'])); ?>"</p>
             </div>
             <div class="date-time"> 
-                <p>Posté le : <?= htmlspecialchars($comment['date']); ?></p>
+                <p>Posté le : <?= ($comment['date']); ?></p>
             </div>
         </div>
     </article>
