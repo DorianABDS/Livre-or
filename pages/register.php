@@ -13,10 +13,7 @@ $newInscription = $newIns->register();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/style-login_register.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/style-commun.css">
 
     <title>Inscription</title>
 </head>
@@ -31,7 +28,11 @@ $newInscription = $newIns->register();
             <?php header("location:login.php"); ?>
             <!-- si pas de session ouverte on propose de se connecter -->
         <?php else : ?>
-            <h1 class="titreh1">Inscription</h1>
+            <div class="title-bloc">
+                <img src="../assets/img/leftlogo.png" alt="logo">
+                <h1 class="title-h1"> Inscription</h1>
+                <img src="../assets/img/rightlogo.png" alt="logo">
+            </div>
             <section class="registration-bloc">
                 <form method="post" action="" class="form">
                     <input class="input" type="text" name="login" id="login" value="" placeholder="Entrez votre pseudo" required><br /><br />                                 
@@ -40,7 +41,7 @@ $newInscription = $newIns->register();
                 </form> 
                 <br>
                     <P>Déja inscrit?</P>
-                    <a href="./login.php" class="button">Se connecter</a><br>
+                    <a href="./login.php" class="button btn-link">Se connecter</a><br>
                     <p class="alert"><?php if (isset($_SESSION['message'])) echo $_SESSION['message'] ?></p>               
             </section>
         <?php endif ?>
