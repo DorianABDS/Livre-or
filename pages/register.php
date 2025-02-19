@@ -26,6 +26,7 @@ $newInscription = $newIns->register();
         <!-- si une session est déjà ouverte on ne propose pas de se reconnecter -->
         <?php if (isset($_SESSION['user'])) : ?>
             <?php header("location:login.php"); ?>
+            
             <!-- si pas de session ouverte on propose de se connecter -->
         <?php else : ?>
             <div class="title-bloc">
