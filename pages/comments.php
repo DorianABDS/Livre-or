@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
         if ($comment->addComment($user_id, $comment_text)) {
             $message = "Votre commentaire a été ajouté avec succès !";
+            header("location: livre_or.php");
         } else {
             $message = "Une erreur est survenue, veuillez réessayer.";
         }
@@ -30,34 +31,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
 
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter un Commentaire</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/style-commun.css">
+    <link rel="stylesheet" href="../assets/css/style-comments.css">
 </head>
+
 <body>
 
-<?php include '../includes/header.php'; ?>
+    <?php include '../includes/header.php'; ?>
 
-<main class="main">
-    <section class="comment-section">
-        <h1>Ajouter un Commentaire</h1>
+    <main class="main">
+        <section class="container-comments">
 
-        <?php if (!empty($message)) : ?>
-            <p class="alert"><?= htmlspecialchars($message); ?></p>
-        <?php endif; ?>
+            <div class="title-bloc">
+                <img src="../assets/img/leftlogo.png" alt="logo">
+                <h1 class="title-h1">Ajouter un Commentaire</h1>
+                <img src="../assets/img/rightlogo.png" alt="logo">
+            </div>
 
-        <form method="post" action="" class="form">
-            <textarea name="comment" id="comment" placeholder="Écrivez votre commentaire ici..." required></textarea><br>
-            <button type="submit" name="submit" class="button">Envoyer</button>
-        </form>
+            <?php if (!empty($message)) : ?>
+                <p class="alert"><?= htmlspecialchars($message); ?></p>
+            <?php endif; ?>
 
-        <br>
-        <a href="livre_or.php" class="button">Voir les commentaires</a>
-    </section>
-</main>
+            <div class="container-box">
+                <form method="post" action="" class="form">
+                    <textarea name="comment" id="comment" placeholder="Écrivez votre commentaire ici..." required></textarea><br>
+                    <button type="submit" name="submit" class="button">Envoyer</button>
+                </form>
+            </div>
+
+            <br>
+        </section>
+    </main>
+
+    <?php include '../includes/footer.php'; ?>
 
 </body>
-</html>
 
+</html>
