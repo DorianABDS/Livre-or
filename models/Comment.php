@@ -1,31 +1,39 @@
 <?php
-
-require_once('../config/Database.php');
+require_once '../config/Database.php';
 
 class Comment extends Database
 {
-    private $id;
-    public $comment;
-    private $id_user;
-    public int $date;
-
-    public function __construct(?int $date)
+     public function __construct()
     {
-        $this->date = $date ?? time();
+        parent::__construct(); // Call the construct of the database class
     }
 
-    public function save()
+    public function addComment($user_id, $comment)
     {
-        $sql = "INSERT INTO comments (comment, id_user, date) VALUES (:comment, :id_user, :date)";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute(['comment' => $this->comment, 'id_user' => $this->id_user, 'date' => $this->date]);
+        $stmt = $this->db->prepare("INSERT INTO comment (comment, id_user) VALUES (:comment, :id_user)");
+        return $stmt->execute([
+            'comment' => $comment,
+            'id_user' => $user_id
+        ]);
+    }
+    public function getComments($limit, $offset)
+{
+    $stmt = $this->db->prepare("SELECT comment.comment, comment.date, user.login 
+                                FROM comment  
+                                JOIN user ON comment.id_user = user.id 
+                                ORDER BY comment.date DESC 
+                                LIMIT :limit OFFSET :offset");
+    $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+    $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+    public function countComments()
+    {
+        $stmt = $this->db->query("SELECT COUNT(*) AS total FROM comment");
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['total'];
     }
 
-    public static function fetchAll()
-    {
-        $db = new Database();
-        $sql = "SELECT * FROM comments";
-        $stmt = $db->query($sql);
-        return $stmt->fetchAll();
-    }
 }
