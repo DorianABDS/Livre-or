@@ -2,21 +2,28 @@
 session_start();
 include_once '../models/Comment.php';
 $comment = new Comment();
+$commentModel = new Comment();
+// PAGINATION & SEARCH
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$limit = 6;
+$offset = ($page - 1) * $limit;
 
-// Déterminer la page actuelle
-$page = isset($_GET['page']) ? (int)$_GET['page'] : 1; // Page par défaut = 1
-$limit = 6; // Nombre de commentaires par page
-$offset = ($page - 1) * $limit; // Calcul de l'offset
+// Check if a search has been performed
+$keyword = isset($_POST['searchbar']) ? trim($_POST['searchbar']) : (isset($_GET['searchbar']) ? trim($_GET['searchbar']) : "");
 
-// Récupérer les commentaires avec pagination
-$comments = $comment->getComments($limit, $offset);
+// Retrieve comments by search
+if (!empty($keyword)) {
+    $comments = $comment->searchComments($keyword, $limit, $offset);
+    $totalComments = $comment->countSearchComments($keyword);
+} else {
+    $comments = $comment->getComments($limit, $offset);
+    $totalComments = $comment->countComments();
+}
 
-// Compter le nombre total de commentaires pour la pagination
-$totalComments = $comment->countComments(); // Assurez-vous que cette méthode fonctionne
 $totalPages = ceil($totalComments / $limit);
 
+// VERIFICATION UTILISATEUR CONNECTÉ
 $message = "";
-
 if (isset($_POST['add-new-com'])) {
     if (isset($_SESSION['user'])) {
         header('Location: comments.php');
@@ -26,7 +33,7 @@ if (isset($_POST['add-new-com'])) {
     }
 }
 ?>
- 
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -34,17 +41,15 @@ if (isset($_POST['add-new-com'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/css/style-livre_or.css">
     <link rel="stylesheet" href="../assets/css/style-commun.css">    
-
     <title>Livre d'Or</title>
 </head>
 
 <body>   
-
 <main class="main">
     <div class="title-bloc">
-    <img src="../assets/img/leftlogo.png" alt="logo">
-    <h1 class="title-h1"> Livre d'Or</h1>
-    <img src="../assets/img/rightlogo.png" alt="logo">
+        <img src="../assets/img/leftlogo.png" alt="logo">
+        <h1 class="title-h1"> Livre d'Or</h1>
+        <img src="../assets/img/rightlogo.png" alt="logo">
     </div>
     <h2 class="title-h2">Commentaires</h2>
 
@@ -58,36 +63,39 @@ if (isset($_POST['add-new-com'])) {
         </div>
         <div class="sections">
             <form action="" method="post" class="form"> 
-                <input class="searchbar" name="searchbar" placeholder="Rechercher un commentaire">
-                <button class="search-btn"><img src="../assets/img/loupe.svg" alt="loupe">
+                <input class="searchbar" name="searchbar" placeholder="Rechercher un commentaire" value="<?= htmlspecialchars($keyword) ?>">
+                <button type="submit" class="search-btn">
+                    <img src="../assets/img/loupe.svg" alt="loupe">
                 </button> 
             </form>
-        
-    </div>
+        </div>
     </section>
 
     <section class="card-container">
-    <?php foreach ($comments as $comment): ?>
-    <article class="card">
-        <div class="card-content">
-            <h3 class="title-h3"><?= $comment['login']; ?></h3>
-            <div class="text-card">
-                <p>"<?= nl2br(($comment['comment'])); ?>"</p>
+        <?php foreach ($comments as $comment): ?>
+        <article class="card">
+            <div class="card-content">
+                <h3 class="title-h3"><?= htmlspecialchars($comment['login']); ?></h3>
+                <div class="text-card">
+                <p>"<?= nl2br($commentModel->highlightKeyword($comment['comment'], $keyword)); ?>"</p>
+
+                </div>
+                <div class="date-time"> 
+                    <p>Posté le : <?= htmlspecialchars($comment['date']); ?></p>
+                </div>
             </div>
-            <div class="date-time"> 
-                <p>Posté le : <?= ($comment['date']); ?></p>
-            </div>
-        </div>
-    </article>
-    <?php endforeach; ?>
+        </article>
+        <?php endforeach; ?>
     </section>
+
     <nav class="pagination">
         <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-            <a class="link-pages"href="livre_or.php?page=<?php echo $i; ?>" class="<?php echo ($i === $page) ? 'active' : ''; ?>">
-                <?php echo $i; ?>
+            <a class="link-pages <?= ($i === $page) ? 'active' : ''; ?>" 
+               href="livre_or.php?page=<?= $i; ?><?= !empty($keyword) ? '&searchbar='.urlencode($keyword) : '' ?>">
+                <?= $i; ?>
             </a>
         <?php endfor; ?>
     </nav>
-    
 </main>
-
+</body>
+</html>

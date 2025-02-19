@@ -141,3 +141,9 @@
     text-shadow: 1px 1px 1px #844922;
     text-align: center;
 }
+
+.highlight {
+  background-color: #ce6f5991;
+  font-weight: bold;
+  padding: 0 0.2rem;
+}
