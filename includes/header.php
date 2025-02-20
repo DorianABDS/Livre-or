@@ -9,6 +9,7 @@
 <body>
 
 <?php 
+session_start();
 $current_page = basename($_SERVER['PHP_SELF']);
 ?>
 
@@ -23,6 +24,9 @@ $current_page = basename($_SERVER['PHP_SELF']);
         <?php if (isset($_SESSION['user_id'])): ?>
             <a href="../pages/profile.php" class="<?= ($current_page == 'profile.php') ? 'active' : '' ?>">
                 <img src="../assets/img/profile.svg" alt="profile">
+            </a>
+            <a href="../pages/logout.php" class="<?= ($current_page == 'logout.php') ? 'active' : '' ?>">
+                <img src="../assets/img/disconnect.svg" alt="disconnect">
             </a>
         <?php else: ?>
             <a href="../pages/login.php" class="<?= ($current_page == 'login.php') ? 'active' : '' ?>">
