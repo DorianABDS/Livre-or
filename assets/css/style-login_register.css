@@ -1,0 +1,57 @@
+.input{
+    background-color: #f8efe9;
+    border: 2px solid #eacec7;
+    width: 15rem;
+    padding: 0.8rem;
+    border-radius: 20px;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
+    height: 4rem;
+    min-width: 18rem;
+    font-size: 18px;
+    margin: 0.5rem;    
+    text-align: center;
+}
+
+.registration-bloc{
+    width:28%;
+    height: 35rem;
+    margin: auto;
+    background-color: #8C564A;
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-link{
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    max-height: 3.5rem;
+}
+
+.titreh1{
+    text-align: center;
+}
+
+.form{
+    display :flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.registration-bloc p{
+    margin: 0.8rem;
+
+}
+
+.alert{
+    padding-top: 2rem;
+    font-size: 24px;
+    color: #f8efe9;
+    text-shadow: 2px 2px 5px #ffb380;
+    
+}
