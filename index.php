@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style-commun.css">
     <title>Livre d'or</title>
 </head>
 
@@ -30,7 +31,7 @@
                 <br>
                 Merci pour votre participation et à bientôt pour une nouvelle édition ! 🎊😊
                 <br>
-                <button class="btn-comments" onclick="window.location.href='comments.php'">
+                <button class="btn-comment button" onclick="window.location.href='comments.php'">
                     Voir les commentaires
                 </button>
             </p>

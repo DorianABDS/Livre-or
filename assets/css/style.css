@@ -1,4 +1,4 @@
-@import url("includes.css");
+@import url("style-includes.css");
 
 @font-face {
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
@@ -26,10 +26,6 @@ html,body {
     display: flex;
     flex-direction: column;
     font-size: 16px;
-    color: var(--text-color);
-    background-color: var(--base-primary-bg);
-    font-weight: 400;
-    height: 100vh;
     color: var(--text-color);
     background-color: var(--base-primary-bg);
     font-weight: 400;
@@ -64,7 +60,8 @@ html,body {
     height: auto;
 
     p {
-        background-color: var(--input-color);
+        background-color: rgb(217, 153, 139,0.5);
+        color: var(--text-color);
         border-radius: 30px;
         font-size: 22px;
         line-height: 40px;
@@ -75,6 +72,11 @@ html,body {
     a {
         font-size: 26px;
     }
+/* 
+    button {
+        opacity: 1;
+    } */
+
 }
 
 .wedding {
@@ -86,20 +88,9 @@ html,body {
 }
 
 .btn-comments {
-    margin-top: 20px;
-    padding: 12px 20px;
-    font-size: 18px;
-    font-weight: bold;
     color: var(--primary-color);
-    background-color: var(--base-secondary-bg);
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
+    background-color: var( --base-primary-bg) !important;   
     transition: background 0.3s ease-in-out;
-}
-
-.btn-comments:hover {
-    background-color: var(--input-color);
 }
 
 
