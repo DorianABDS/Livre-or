@@ -1,61 +1,52 @@
-# 📖 Livre d'Or d'un mariage
+# 🌍 Welcome to the Wedding Guestbook
 
-## ✨ Présentation du projet
+<div align="center">
 
-Le projet Livre d'Or permet aux invités d'un mariage de laisser des messages aux mariés via une plateforme web intuitive et conviviale.
+[English](README-en.md) / [Français](README-fr.md)
 
-### 👥 Équipe du projet
+</div>
 
-[Nom 1] - Rôle
+<div align="center">
 
-[Nom 2] - Rôle
+  ![](/assets/img/img-markdown.png)  
+  [![Website](https://img.shields.io/badge/Live%20Site-Click%20Here-brown)](https://yourwebsite.com)
 
-[Nom 3] - Rôle
+</div>
 
-[Nom 4] - Rôle
+## ✨ Project Overview  
+We worked on a one-week project during which we developed a full-stack website. This site serves as a **digital wedding guestbook**, allowing guests to **leave a message for the newlyweds** and view messages that have already been posted. The goal was to create a simple and elegant platform, providing the couple with a beautiful keepsake filled with messages from their loved ones.  
 
-## ⚙️ Technologies utilisées
+## 📌 Main Pages  
+Here are the main features of the website:
 
-### 🎨 Conception
+- 📝 **Sign-up**: Create an account  
+- 🔑 **Login**: User authentication  
+- 🏡 **Home**: Wedding presentation  
+- 📜 **Guestbook**: View and post messages  
+- ⚙️ **Profile Editing**: Update personal information  
+- 💬 **Add a Comment**: Leave a message for the newlyweds  
 
-Figma : Maquettage graphique
+## ⚙️ Technologies Used  
+The following technologies were used to build the site:
 
-Lucidchart : Schématisation des bases de données
+### 🎨 **Design & Tools**
+- [Trello](https://trello.com/fr)  
+- [Figma](https://www.figma.com/fr-fr/)  
+- [Lucidchart](https://www.lucidchart.com/pages/fr)  
 
-Trello : Gestion des tâches
+### 💻 **Web Development**  
+- **HTML**  
+- **CSS**  
+- **PHP**  
+- **SQL**  
 
-### 💻 Développement Web
+### 🔧 **Tools**  
+- **WAMP**  
+- **PhpMyAdmin**  
+- **Git & GitHub**  
 
-HTML : Structure du site
+---
 
-CSS : Mise en page et styles
-
-PHP : Gestion dynamique du site
-
-SQL : Stockage des données
-
-### 🔧 Outils
-
-WAMP : Serveur local
-
-PhpMyAdmin : Gestion de la base de données
-
-Git & GitHub : Versioning et collaboration
-
-## 🎨 Charte graphique et conception
-
-Nous avons conçu notre propre charte graphique, maquettes UX/UI et modèles de conception selon nos besoins et inspirations.
-
-📌 Pages principales
-
-📝 Inscription : Création d'un compte
-
-🔑 Connexion : Authentification utilisateur
-
-🏡 Accueil : Présentation du mariage
-
-📜 Livre d'or : Affichage et publication de messages
-
-⚙️ Modification du profil : Mise à jour des informations
-
-💬 Ajouter un commentaire : Laisser un message aux mariés
+> **[!NOTE]**  
+> **Graphic Charter and Design**:  
+> We created our own graphic charter, UX/UI mockups, and design templates according to our needs and inspirations.  
