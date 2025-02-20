@@ -17,15 +17,15 @@ $current_page = basename($_SERVER['PHP_SELF']);
         <a href="../index.php" class="<?= ($current_page == 'index.php') ? 'active' : '' ?>">
             <img src="../assets/img/home.svg" alt="home">
         </a>
-        <a href="../pages/livre_or.php" class="<?= ($current_page == 'pages/livre_or.php') ? 'active' : '' ?>">
+        <a href="../pages/livre_or.php" class="<?= ($current_page == 'livre_or.php') ? 'active' : '' ?>">
             <img src="../assets/img/book.svg" alt="book">
         </a>
         <?php if (isset($_SESSION['user_id'])): ?>
-            <a href="../pages/profile.php" class="<?= ($current_page == 'pages/profile.php') ? 'active' : '' ?>">
+            <a href="../pages/profile.php" class="<?= ($current_page == 'profile.php') ? 'active' : '' ?>">
                 <img src="../assets/img/profile.svg" alt="profile">
             </a>
         <?php else: ?>
-            <a href="../pages/login.php" class="<?= ($current_page == 'pages/login.php') ? 'active' : '' ?>">
+            <a href="../pages/login.php" class="<?= ($current_page == 'login.php') ? 'active' : '' ?>">
                 <img src="../assets/img/profile.svg" alt="profile">
             </a>
         <?php endif; ?>
