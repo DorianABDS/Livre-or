@@ -62,6 +62,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <button type="submit">Modifier</button>
     </form>
 
-    <a href="logout.php">Se déconnecter</a>
+    <a href="/logout.php">Se déconnecter</a>
 </body>
 </html>
