@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border: red solid 2px;
 
 }
 
@@ -10,8 +11,6 @@
   width: 35%;
   margin: 2rem 0;
 }
-
-
 
 .form{
     display: flex;
@@ -97,10 +96,15 @@
   flex-direction: column;
 }
 .text-card{
-    min-width: 20rem;
+    width: 23rem;
     min-height: 35vh;
+    max-width: 23rem;
     background-color: #FFEFE5;
     border-radius: 20px;
+}
+
+.text{
+  max-width: 23rem;
 }
 
 .text-card p {

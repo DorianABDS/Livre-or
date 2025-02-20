@@ -29,7 +29,7 @@ if (isset($_POST['add-new-com'])) {
         header('Location: comments.php');
         exit;
     } else {
-        $message = "Veuillez vous connecter pour laisser un commentaire!";
+        $message = "Veuillez vous connecter pour laisser un commentaire !";
     }
 }
 ?>
@@ -43,7 +43,7 @@ if (isset($_POST['add-new-com'])) {
     <link rel="stylesheet" href="../assets/css/style-commun.css">    
     <title>Livre d'Or</title>
 </head>
-
+<?php include '../includes/header.php' ?>
 <body>   
 <main class="main">
     <div class="title-bloc">
@@ -77,7 +77,7 @@ if (isset($_POST['add-new-com'])) {
             <div class="card-content">
                 <h3 class="title-h3"><?= htmlspecialchars($comment['login']); ?></h3>
                 <div class="text-card">
-                <p>"<?= nl2br($commentModel->highlightKeyword($comment['comment'], $keyword)); ?>"</p>
+                <p class="text">"<?= nl2br($commentModel->highlightKeyword($comment['comment'], $keyword)); ?>"</p>
 
                 </div>
                 <div class="date-time"> 
@@ -97,5 +97,5 @@ if (isset($_POST['add-new-com'])) {
         <?php endfor; ?>
     </nav>
 </main>
-</body>
-</html>
+
+<?php include '../includes/footer.php' ?>
