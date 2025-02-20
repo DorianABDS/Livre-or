@@ -146,7 +146,7 @@ footer {
 
 /* ✅ RESPONSIVE DESIGN */
 
-/* 📱 Petits écrans (mobiles) */
+/* 📱 Small screens (mobile) */
 @media screen and (max-width: 768px) {
     .barrenav {
         flex-direction: column;
@@ -177,7 +177,7 @@ footer {
     }
 }
 
-/* 🖥️ Écrans moyens (tablettes) */
+/* 🖥️ Medium screens (tablets) */
 @media screen and (max-width: 1200px) {
     .barrenav {
         flex-direction: row;
@@ -196,15 +196,4 @@ footer {
     }
 }
 
-/* 💻 Grands écrans (PC) */
-/* @media screen and (min-width: 1500px) {
-    .index-container-box {
-        flex-direction: column;
-        text-align: left;
-    }
-
-    .wedding {
-        margin-bottom: 30px;
-    }
-} */
 
