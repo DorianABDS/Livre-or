@@ -2,6 +2,7 @@
 .add-search{
   display: flex;
   align-items: center;
+  justify-content: center;
 
 }
 
@@ -75,7 +76,7 @@
   margin: 2rem;
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: #8C564A;
+  background-color: var(--base-color);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.125);  
   padding: 38px;  
@@ -146,4 +147,27 @@
   background-color: #ce6f5991;
   font-weight: bold;
   padding: 0 0.2rem;
+}
+
+/* .s1{
+  border: blue solid 2xp;
+  background-color: rgb(0, 255, 153);
+}
+
+.s2{
+  border: pink solid 2xp;
+  background-color: #cd6750;
+}
+
+.s3{
+border: green solid 2xp;;
+background-color: rgb(118, 49, 246);
+} */
+
+@media  screen and (max-width: 1024px) {
+
+  .sections{
+    flex-wrap: wrap;
+}
+
 }

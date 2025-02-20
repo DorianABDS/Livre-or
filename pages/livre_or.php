@@ -54,14 +54,14 @@ if (isset($_POST['add-new-com'])) {
     <h2 class="title-h2">Commentaires</h2>
 
     <section class="add-search">
-        <div class="sections"></div>
-        <div class="sections">
+        <div class="sections s1"></div>
+        <div class="sections s2">
             <form action="" method="post" class="form">        
                 <button type="submit" class="button btn-add-com" name="add-new-com">Ajouter un commentaire</button>
             </form>
             <div class="alert-comment"><?= $message ?></div>
         </div>
-        <div class="sections">
+        <div class="sections s3">
             <form action="" method="post" class="form"> 
                 <input class="searchbar" name="searchbar" placeholder="Rechercher un commentaire" value="<?= htmlspecialchars($keyword) ?>">
                 <button type="submit" class="search-btn">
