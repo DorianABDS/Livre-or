@@ -2,14 +2,8 @@
 
 <div align="center">
 
-[English](docs/README-en.md) / [Français](docs/README-fr.md)
-
-</div>
-
-<div align="center">
-
   ![](/assets/img/img-markdown.png)  
-  [![Site Web](https://img.shields.io/badge/Live%20Site-Click%20Here-brown)](https://yourwebsite.com)
+  [![Website](https://img.shields.io/badge/Live%20Site-Click%20Here-brown)](https://yourwebsite.com) [![English](https://img.shields.io/badge/Anglais-%20Cliquez%20Hici-blue)](../README.md)
 
 </div>
 
@@ -47,6 +41,6 @@ Les technologies suivantes ont été utilisées pour construire le site :
 
 ---
 
-> **[!NOTE]**  
+> [!NOTE] 
 > **Charte Graphique et Design** :  
 > Nous avons créé notre propre charte graphique, maquettes UX/UI, et modèles de conception selon nos besoins et inspirations.
