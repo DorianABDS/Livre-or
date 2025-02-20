@@ -1,5 +1,3 @@
-<?php include 'includes/header.php'; ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -11,6 +9,8 @@
 </head>
 
 <body>
+    <?php include 'includes/header.php'; ?>
+
     <main class="index-main">
         <img class="guestbook" src="../Livre-or/assets/img/guestbook.png" alt="Guestbook">
         <div class="index-container-box">
@@ -29,11 +29,14 @@
                 Laissez un message pour remercier, encourager ou simplement partager votre ressenti.
                 <br>
                 Merci pour votre participation et à bientôt pour une nouvelle édition ! 🎊😊
+                <br>
+                <button class="btn-comments" onclick="window.location.href='comments.php'">
+                    Voir les commentaires
+                </button>
             </p>
         </div>
     </main>
+    <?php include 'includes/footer.php'; ?>
 </body>
 
 </html>
-
-<?php include 'includes/footer.php'; ?>

@@ -17,15 +17,15 @@ $current_page = basename($_SERVER['PHP_SELF']); // Récupère le fichier actuel
         <a href="index.php" class="<?= ($current_page == 'index.php') ? 'active' : '' ?>">
             <img src="../LIVRE-OR/assets/img/home.svg" alt="home">
         </a>
-        <a href="livre-or.php" class="<?= ($current_page == 'livre-or.php') ? 'active' : '' ?>">
+        <a href="livre_or.php" class="<?= ($current_page == 'livre_or.php') ? 'active' : '' ?>">
             <img src="../LIVRE-OR/assets/img/book.svg" alt="book">
         </a>
         <?php if (isset($_SESSION['user_id'])): ?>
-            <a href="profil.php" class="<?= ($current_page == 'profil.php') ? 'active' : '' ?>">
+            <a href="profile.php" class="<?= ($current_page == 'profile.php') ? 'active' : '' ?>">
                 <img src="../LIVRE-OR/assets/img/profile.svg" alt="profile">
             </a>
         <?php else: ?>
-            <a href="connection.php" class="<?= ($current_page == 'connection.php') ? 'active' : '' ?>">
+            <a href="login.php" class="<?= ($current_page == 'login.php') ? 'active' : '' ?>">
                 <img src="../LIVRE-OR/assets/img/profile.svg" alt="profile">
             </a>
         <?php endif; ?>
