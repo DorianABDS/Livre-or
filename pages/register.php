@@ -50,4 +50,4 @@ $newInscription = $newIns->register();
 </main>
 
 
-<!-- <?php // include '../component/footer.php'; ?> -->
+<!-- <?php include '../includes/footer.php'; ?> -->
