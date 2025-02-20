@@ -9,7 +9,7 @@
 <body>
 
 <?php 
-$current_page = basename($_SERVER['PHP_SELF']); // Récupère le fichier actuel
+$current_page = basename($_SERVER['PHP_SELF']);
 ?>
 
 <header>
