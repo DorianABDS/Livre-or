@@ -57,7 +57,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                 <br>
                 Merci pour votre participation et à bientôt pour une nouvelle édition ! 🎊😊
                 <br>
-                <button class="btn-comment button" onclick="window.location.href='comments.php'">
+                <button class="btn-comment button" onclick="window.location.href='../Livre-or/pages/comments.php'">
                     Voir les commentaires
                 </button>
             </p>
