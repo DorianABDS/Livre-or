@@ -2,14 +2,8 @@
 
 <div align="center">
 
-[English](/docs/README-en.md) / [Français](/docs/README-fr.md)
-
-</div>
-
-<div align="center">
-
   ![](/assets/img/img-markdown.png)  
-  [![Website](https://img.shields.io/badge/Live%20Site-Click%20Here-brown)](https://yourwebsite.com)
+  [![Website](https://img.shields.io/badge/Live%20Site-Click%20Here-brown)](https://yourwebsite.com) [![French](https://img.shields.io/badge/French-%20Click%20here-blue)](/docs/README-fr.md)
 
 </div>
 
