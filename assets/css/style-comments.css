@@ -59,17 +59,12 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 40px;
   }
   .title-bloc img{
     width: 3rem;
   }
 
 @media screen and (min-width: 425px) and (max-width: 768px) {
-    .title-bloc {
-      margin-top: 150px;
-    }
-
     #comment {
       min-width: 400px;
       min-height: 200px;
@@ -83,10 +78,6 @@ button {
   }
   
 @media screen and (max-width: 426px) {
-    .title-bloc {
-      margin-top: 150px;
-    }
-
     #comment {
       min-width: 250px;
       min-height: 200px;
