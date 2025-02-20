@@ -1,3 +1,8 @@
+<?php
+require_once 'models/User.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -23,13 +28,15 @@ $current_page = basename($_SERVER['PHP_SELF']);
         <a href="pages/livre_or.php" class="<?= ($current_page == 'pages/livre_or.php') ? 'active' : '' ?>">
             <img src="assets/img/book.svg" alt="book">
         </a>
-        <?php if (isset($_SESSION['user_id'])): ?>
-            <a href="pages/profile.php" class="<?= ($current_page == 'pages/profile.php') ? 'active' : '' ?>">
-                <img src="assets/img/profile.svg" alt="profile">
-            </a>
-            <a href="../pages/logout.php" class="<?= ($current_page == 'logout.php') ? 'active' : '' ?>">
-                <img src="../assets/img/disconnect.svg" alt="disconnect">
-            </a>
+    
+    <?php if (isset($_SESSION['user'])): ?>
+        
+        <a href="pages/profile.php" class="<?= ($current_page == 'pages/login.php') ? 'active' : '' ?>">
+            <img src="assets/img/profile.svg" alt="profile">
+        </a>
+        <a href="pages/logout.php" class="">
+            <img src="assets/img/disconnect.svg" alt="disconnect">
+        </a>
         <?php else: ?>
             <a href="pages/login.php" class="<?= ($current_page == 'pages/login.php') ? 'active' : '' ?>">
                 <img src="assets/img/profile.svg" alt="profile">
@@ -37,6 +44,9 @@ $current_page = basename($_SERVER['PHP_SELF']);
         <?php endif; ?>
     </nav>
 </header>
+
+
+
 
     <main class="index-main">
         <img class="guestbook" src="../Livre-or/assets/img/guestbook.png" alt="Guestbook">
@@ -57,7 +67,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                 <br>
                 Merci pour votre participation et à bientôt pour une nouvelle édition ! 🎊😊
                 <br>
-                <button class="btn-comment button" onclick="window.location.href='comments.php'">
+                <button class="btn-comment button" onclick="window.location.href='pages/livre_or.php'">
                     Voir les commentaires
                 </button>
             </p>

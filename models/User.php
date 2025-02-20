@@ -1,6 +1,8 @@
 <?php
-
-require_once ('../config/Database.php');
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+require_once __DIR__ . '/../config/Database.php';
 
 class User extends Database
 {
