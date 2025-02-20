@@ -19,6 +19,10 @@
   margin: 0 100px;
 }
 
+.main {
+  min-height: 100vh;
+}
+
 #comment {
     min-width: 600px;
     min-height: 200px;
