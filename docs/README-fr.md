@@ -41,6 +41,6 @@ Les technologies suivantes ont été utilisées pour construire le site :
 
 ---
 
-> **[!NOTE]**  
+> [!NOTE] 
 > **Charte Graphique et Design** :  
 > Nous avons créé notre propre charte graphique, maquettes UX/UI, et modèles de conception selon nos besoins et inspirations.

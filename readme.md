@@ -41,6 +41,6 @@ The following technologies were used to build the site:
 
 ---
 
-> **[!NOTE]**  
+> [!NOTE] 
 > **Graphic Charter and Design**:  
 > We created our own graphic charter, UX/UI mockups, and design templates according to our needs and inspirations.  
