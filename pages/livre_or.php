@@ -70,7 +70,6 @@ if (isset($_POST['add-new-com'])) {
             </form>
         </div>
     </section>
-
     <section class="card-container">
         <?php foreach ($comments as $comment): ?>
         <article class="card">
