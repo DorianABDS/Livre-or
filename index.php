@@ -27,6 +27,9 @@ $current_page = basename($_SERVER['PHP_SELF']);
             <a href="pages/profile.php" class="<?= ($current_page == 'pages/profile.php') ? 'active' : '' ?>">
                 <img src="assets/img/profile.svg" alt="profile">
             </a>
+            <a href="../pages/logout.php" class="<?= ($current_page == 'logout.php') ? 'active' : '' ?>">
+                <img src="../assets/img/disconnect.svg" alt="disconnect">
+            </a>
         <?php else: ?>
             <a href="pages/login.php" class="<?= ($current_page == 'pages/login.php') ? 'active' : '' ?>">
                 <img src="assets/img/profile.svg" alt="profile">
