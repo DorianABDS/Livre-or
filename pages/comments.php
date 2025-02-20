@@ -38,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     <title>Ajouter un Commentaire</title>
     <link rel="stylesheet" href="../assets/css/style-commun.css">
     <link rel="stylesheet" href="../assets/css/style-comments.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body>

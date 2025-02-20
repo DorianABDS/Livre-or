@@ -15,12 +15,8 @@
   --primary-color: #fff;
 }
 
-body {
-    background-color: #F2E0D5;
-    color: var(--text-color);
-    font-size: 16px;
-    font-family: Montserrat, sans-serif;
-    font-weight: 500;
+.container-comment {
+  margin: 0 100px;
 }
 
 #comment {
@@ -63,7 +59,39 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 40px;
   }
   .title-bloc img{
-    width: 5rem;
+    width: 3rem;
   }
+
+@media screen and (min-width: 425px) and (max-width: 768px) {
+    .title-bloc {
+      margin-top: 150px;
+    }
+
+    #comment {
+      min-width: 400px;
+      min-height: 200px;
+    }
+
+    .container-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  
+@media screen and (max-width: 426px) {
+    .title-bloc {
+      margin-top: 150px;
+    }
+
+    #comment {
+      min-width: 250px;
+      min-height: 200px;!default
+    }
+
+    .title-h1 {
+      font-size: 1.5rem;
+    }
