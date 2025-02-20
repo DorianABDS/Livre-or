@@ -28,6 +28,7 @@ header {
     width: 100%;
 }
 
+
 /* NAVIGATION */
 .barrenav {
     display: flex;
@@ -70,12 +71,9 @@ footer {
     margin-top: 20px;
     left: 0;
     bottom: 0;
-    position: absolute;
 }
 
 footer p {
     font-size: 22px;
     margin: 20px;
 }
-
-
