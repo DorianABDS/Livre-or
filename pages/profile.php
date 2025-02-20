@@ -3,6 +3,8 @@ session_start();
 require_once '../config/Database.php';
 require_once '../models/User.php';
 
+
+
 // Check if the user is logged in
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
@@ -27,9 +29,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($newLogin || $newPassword) {
         $message = $user->updateUser($_SESSION['user'], $newLogin, $newPassword);
-        // Update session if login is changed
-        if ($newLogin) {
-            $_SESSION['login'] = $newLogin;
+
+
+        if ($message === "Mise à jour réussie") {
+            session_destroy();
+            header("Location: /pages/login.php");
         }
     } else {
         $message = "Veuillez remplir au moins un champ.";
@@ -56,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <main class="main">
         <div class="title-bloc">
             <img src="../assets/img/leftlogo.png" alt="logo">
-            <h1 class="title-h1">Modifier mon profil</h1>
+            <h1 class="title-h1">Bienvenue, <?= htmlspecialchars($currentUser['login']); ?> !</h1>
             <img src="../assets/img/rightlogo.png" alt="logo">
         </div>
 
@@ -64,19 +68,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p><?= $message ?></p>
         <?php endif; ?>
         <section class="profile-bloc">
-            <form method="POST">
-                <label for="login">Nouveau Login :</label>
-                <input type="text" name="login" id="login" value="" class="input" <?= htmlspecialchars($currentUser['login']) ?>">
+            <h2 class="title-h2">Modifier vos informations personnelles</h2>
+            <form class="form" method="POST">
 
-                <label for="password">Nouveau Mot de Passe :</label>
-                <input type="password" name="password" id="password" class="input">
+                <input class="input" type="text" name="login" id="login" value="<?= htmlspecialchars($currentUser['login']) ?>" placeholder="Nouveau login" required><br /><br />
 
+                <input class="input" type="password" name="password" id="password" placeholder="Nouveau mot de passe" required><br /><br />
+           
                 <button type="submit" class="button">Modifier</button>
             </form>
-
-            <a href="/logout.php" class="button-logout">Se déconnecter</a>
         </section>
         <?php include '../includes/footer.php'; ?>
+
     </main>
 
 </body>

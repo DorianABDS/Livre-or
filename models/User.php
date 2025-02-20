@@ -51,32 +51,37 @@ class User extends Database
 
     public function register()
     {
-        if (isset($_POST['submit'])) {
-            if (!empty($_POST['login']) && !empty($_POST['password'])) {
-                $login = htmlentities($_POST['login']);
-                $password = password_hash($_POST['password'], PASSWORD_BCRYPT); // Hash the password
-                // Check if the username already exists
-                $checklogin = $this->db->prepare("SELECT id FROM user WHERE login = :login");
-                $checklogin->execute(["login" => $login]);
-
-                if ($checklogin->fetch()) {
-                    $_SESSION['message']  = "Ce pseudo est déjà utilisé !";
-                } else {
-                    // Insert new user into the database
-                    $req = $this->db->prepare("INSERT INTO user (login, password)
-                                               VALUES (:login, :password)");
+        
+            session_start(); // Assurez-vous que la session est démarrée
+        
+            // Vérification que les données de mise à jour sont envoyées par POST
+            if (isset($_POST['submit'])) {
+                if (!empty($_POST['login']) && !empty($_POST['password'])) {
+                    $login = htmlentities($_POST['login']);
+                    $password = password_hash($_POST['password'], PASSWORD_BCRYPT); // Hash le nouveau mot de passe
+                    
+                    // Mise à jour du pseudo et du mot de passe dans la base de données
+                    $req = $this->db->prepare("UPDATE user SET login = :login, password = :password WHERE id = :id");
                     $req->execute([
                         "login" => $login,
-                        "password" => $password
+                        "password" => $password,
+                        "id" => $_SESSION['user_id'] // Utiliser l'ID de l'utilisateur connecté
                     ]);
-
-
-                    $_SESSION['message']  = "Inscription réussie ! Connectez-vous.";
-                    header("location:login.php");
+        
+                    // Message de confirmation
+                    $_SESSION['message'] = "Votre profil a été mis à jour avec succès.";
+        
+                    // Détruire la session (se déconnecter après modification)
+                    session_destroy();
+        
+                    // Rediriger vers la page de connexion
+                    header("Location: login.php");
+                    exit();
+                } else {
+                    // Message d'erreur si l'un des champs est vide
+                    $_SESSION['message'] = "Veuillez remplir tous les champs.";
                 }
-            } else {
-                $_SESSION['message']  = "Veuillez remplir tous les champs";
-            }
+            
         }
     }
 

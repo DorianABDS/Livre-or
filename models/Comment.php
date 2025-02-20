@@ -83,5 +83,6 @@ class Comment extends Database
         return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
     }
     
+    
 
 }
