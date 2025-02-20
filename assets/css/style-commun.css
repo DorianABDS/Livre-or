@@ -57,6 +57,16 @@ body {
     margin: 1.5rem;
   }
   .title-bloc img{
-    width: 5rem;
+    width: 3rem;
   }
 
+  @media  screen and (max-width: 1024px) {
+
+    .button{
+      min-width: 12rem;
+      width: 40%;
+      height: 3rem;
+      font-size: 16px;
+  }
+
+  }
