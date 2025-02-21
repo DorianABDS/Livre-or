@@ -29,7 +29,7 @@ html,body {
 
 /* MAIN */
 .index-main {
-    min-height: 120vh;
+    height: auto;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -92,6 +92,48 @@ html,body {
 
 /* ✅ RESPONSIVE DESIGN */
 
+/* 🖥️ laptop screens */
+
+@media screen and (min-width: 1201px) {
+    .button {
+        font-size: 16px !important;
+        margin: 20px 0 0 0;
+    }
+}
+
+/* 🖥️ Medium screens (tablets) */
+@media screen and (max-width: 1200px) and (min-width: 769px) {
+    .barrenav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .index-container-box {
+        flex-direction: column;
+        padding: 40px;
+        width: 100%;
+    }
+
+    .index-container-box p {
+        font-size: 20px !important;
+    }
+
+    .index-container-box img {
+        margin: 0 0 30px 0;
+    }
+
+    .wedding {
+        width: 80%;
+    }
+
+    .button {
+        font-size: 14px !important;
+        margin: 20px 0 0 0;
+    }
+}
+
 /* 📱 Small screens (mobile) */
 @media screen and (max-width: 768px) {
     .barrenav {
@@ -102,14 +144,16 @@ html,body {
     .barrenav a {
         display: block;
         padding: 12px;
-        width: 100%;
         text-align: center;
     }
 
     .index-container-box {
         flex-direction: column;
-        width: 90%;
         padding: 30px;
+    }
+
+    .index-container-box img {
+        margin: 0 0 30px 0;
     }
 
     .index-container-box p {
@@ -121,24 +165,10 @@ html,body {
         width: 100%;
         margin-right: 0;
     }
-}
 
-/* 🖥️ Medium screens (tablets) */
-@media screen and (max-width: 1200px) {
-    .barrenav {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .index-container-box {
-        flex-direction: column;
-        padding: 40px;
-    }
-
-    .wedding {
-        width: 80%;
+    .button {
+        font-size: 14px !important;
+        margin: 20px 0 0 0;
     }
 }
 
