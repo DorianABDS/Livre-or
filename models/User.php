@@ -1,6 +1,8 @@
 <?php
-
-require_once ('../config/Database.php');
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+require_once __DIR__ . '/../config/Database.php';
 
 class User extends Database
 {
@@ -8,36 +10,34 @@ class User extends Database
     private $login;
     protected $password;
 
-    public function __construct()
+    public function construct()
     {
-        parent::__construct(); // Call the parent constructor first
-        $this->id = null; // Initialize ID to null
-        $this->login = ""; // Initialize login as an empty string
-        $this->password = ""; // Initialize password as an empty string
+        parent::__construct(); // D'abord appeler le constructeur parent
+        $this->id = null; // Initialisation
+        $this->login = ""; // Initialisation à une chaîne vide
+        $this->password = ""; // Initialisation à une chaîne vide
     }
 
     public function login()
-
     {
         if (isset($_POST['submit'])) {
             if (!empty($_POST['login']) && !empty($_POST['password'])) {
                 $login = htmlentities($_POST['login']);
                 $password = $_POST['password'];
-                // Prepare and execute query to fetch user by login
                 $req = $this->db->prepare("SELECT * FROM user WHERE login = :login");
                 $req->execute(["login" => $login]);
                 $user = $req->fetch(PDO::FETCH_ASSOC);
 
                 if (!$user) { // Vérifie si l'utilisateur existe
                     $_SESSION['message']  = "Pseudo ou Mot de passe incorrect !";
-                } else {  // Verify password
+                } else {
                     if (password_verify($password, $user['password']) ||  $password == $user['password']) {
 
                         session_start();
                         $_SESSION['user'] = $user['id'];
                         $userNum = new User();
                         header("location: login.php");
-                        exit(); // Exit after redirection
+                        exit(); // Ajout d'un exit() après la redirection
                     } else {
                         $_SESSION['message']  = "Pseudo ou Mot de passe incorrect !";
                     }
@@ -47,41 +47,34 @@ class User extends Database
             }
         }
     }
-
-
     public function register()
     {
-        
-            session_start(); // Assurez-vous que la session est démarrée
-        
-            // Vérification que les données de mise à jour sont envoyées par POST
-            if (isset($_POST['submit'])) {
-                if (!empty($_POST['login']) && !empty($_POST['password'])) {
-                    $login = htmlentities($_POST['login']);
-                    $password = password_hash($_POST['password'], PASSWORD_BCRYPT); // Hash le nouveau mot de passe
-                    
-                    // Mise à jour du pseudo et du mot de passe dans la base de données
-                    $req = $this->db->prepare("UPDATE user SET login = :login, password = :password WHERE id = :id");
+        if (isset($_POST['submit'])) {
+            if (!empty($_POST['login']) && !empty($_POST['password'])) {
+                $login = htmlentities($_POST['login']);
+                $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+                // Vérifier si l'utilisateur existe déjà
+                $checklogin = $this->db->prepare("SELECT id FROM user WHERE login = :login");
+                $checklogin->execute(["login" => $login]);
+
+                if ($checklogin->fetch()) {
+                    $_SESSION['message']  = "Ce pseudo est déjà utilisé !";
+                } else {
+
+                    $req = $this->db->prepare("INSERT INTO user (login, password)
+                                               VALUES (:login, :password)");
                     $req->execute([
                         "login" => $login,
-                        "password" => $password,
-                        "id" => $_SESSION['user_id'] // Utiliser l'ID de l'utilisateur connecté
+                        "password" => $password
                     ]);
-        
-                    // Message de confirmation
-                    $_SESSION['message'] = "Votre profil a été mis à jour avec succès.";
-        
-                    // Détruire la session (se déconnecter après modification)
-                    session_destroy();
-        
-                    // Rediriger vers la page de connexion
-                    header("Location: login.php");
-                    exit();
-                } else {
-                    // Message d'erreur si l'un des champs est vide
-                    $_SESSION['message'] = "Veuillez remplir tous les champs.";
+
+
+                    $_SESSION['message']  = "Inscription réussie ! Connectez-vous.";
+                    header("location:login.php");
                 }
-            
+            } else {
+                $_SESSION['message']  = "Veuillez remplir tous les champs";
+            }
         }
     }
 
@@ -116,7 +109,9 @@ class User extends Database
         // Prepare and execute the update query
         $req = $this->db->prepare($sql);
         if ($req->execute($params)) {
-            return "Modification réussie !";
+            session_destroy();
+            header("Location:../pages/login.php");
+            exit();
         } else {
             return "Erreur lors de la modification.";
         }

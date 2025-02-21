@@ -1,8 +1,8 @@
 <?php
-session_start();
-require_once '../config/Database.php';
-require_once '../models/User.php';
 
+require_once '../config/Database.php';
+include_once '../models/User.php';
+include_once '../models/Comment.php';
 
 
 // Check if the user is logged in
@@ -39,6 +39,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = "Veuillez remplir au moins un champ.";
     }
 }
+
+$comment = new Comment();
+$commentModel = new Comment();
+
+$page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+$limit = 6;
+$offset = ($page - 1) * $limit;
+
+$keyword = isset($_POST['searchbar']) ? trim($_POST['searchbar']) : (isset($_GET['searchbar']) ? trim($_GET['searchbar']) : "");
+
+if (!empty($keyword)) {
+    $comments = $comment->searchComments($keyword, $limit, $offset);
+    $totalComments = $comment->countSearchComments($keyword);
+} else {
+    $comments = $comment->getComments($limit, $offset);
+    $totalComments = $comment->countComments();
+}
+
+$totalPages = ceil($totalComments / $limit);
+
+$message = "";
+if (isset($_POST['add-new-com'])) {
+    if (isset($_SESSION['user'])) {
+        header('Location: comments.php');
+        exit;
+    } else {
+        $message = "Veuillez vous connecter pour laisser un commentaire !";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -70,14 +99,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <section class="profile-bloc">
             <h2 class="title-h2">Modifier vos informations personnelles</h2>
             <form class="form" method="POST">
+                <div class="input-box">
 
-                <input class="input" type="text" name="login" id="login" value="<?= htmlspecialchars($currentUser['login']) ?>" placeholder="Nouveau login" required><br /><br />
+                    <input class="input" type="text" name="login" id="login" value="<?= htmlspecialchars($currentUser['login']) ?>" placeholder="Nouveau login" required><br /><br />
 
-                <input class="input" type="password" name="password" id="password" placeholder="Nouveau mot de passe" required><br /><br />
-           
-                <button type="submit" class="button">Modifier</button>
+                    <input class="input" type="password" name="password" id="password" placeholder="Nouveau mot de passe" required><br /><br />
+                </div>
+
+                <div class="button-box">
+                    <button type="submit" class="button">Modifier</button>
+                </div>
             </form>
         </section>
+        
+        <section class="card-container">
+        <div class="all-comments">
+            <h2>Mes commentaires </h2>
+            <div class="card-container">
+                <?php foreach ($comments as $comment): ?>
+                        <article class="card">
+                            <div class="card-content">
+                                <h3 class="title-h3">Vous</h3>
+                                <div class="text-card">
+                                    <p class="text">"<?= nl2br($commentModel->highlightKeyword($comment['comment'], $keyword)); ?>"</p>
+                                </div>
+                                <div class="date-time"> 
+                                    <p>Posté le : <?= htmlspecialchars($comment['date']); ?></p>
+                                </div>
+                            </div>
+                        </article>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </section>
+    <nav class="pagination">
+        <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+            <a class="link-pages <?= ($i === $page) ? 'active' : ''; ?>" 
+               href="profile.php?page=<?= $i; ?><?= !empty($keyword) ? '&searchbar='.urlencode($keyword) : '' ?>">
+                <?= $i; ?>
+            </a>
+        <?php endfor; ?>
+    </nav>
+
         <?php include '../includes/footer.php'; ?>
 
     </main>
