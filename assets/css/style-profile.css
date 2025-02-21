@@ -159,8 +159,10 @@ h2 {
   
     }
     }
+    @media  screen and (max-width: 520px) {
 
-    
+
+    }
     @media  screen and (max-width: 425px) {
       .card {  
         width: 20rem;
@@ -173,5 +175,30 @@ h2 {
     
     .card-container { 
       width: 100%;
+    }
+    }
+    @media  screen and (max-width: 320px) {
+      .card {  
+        width: 16rem;
+        height: 35vh;
+      }
+    
+      .text-card{
+        width: 12.5rem;
+        height:30vh;    
+        min-height: 20vh;
+      }
+    
+    .card-container { 
+      width: 100%;
+    }
+    
+    .text-card p {
+      font-size: 1rem;
+      padding: 1.5rem;
+    }
+    
+    .date-time p{
+      font-size: 0.8rem;
     }
     }
