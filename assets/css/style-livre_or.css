@@ -1,5 +1,4 @@
 
-
 .main{
   min-height: 74.5vh;
 }
@@ -15,13 +14,6 @@
   margin: 2rem 0;
 }
 
-
-
-.s2{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 .form{
     display: flex;
@@ -49,11 +41,6 @@
     cursor: pointer;
 }
 
-.title-h1{
-  color:  #7c4c42;
-  font-size: 2.4rem;
-  text-align: center;
-}
 
 .title-bloc{
   justify-content: center;
@@ -65,7 +52,7 @@
 }
 .title-h2{
   margin-top: 2rem;
-  font-size: 2rem;
+  font-size: 20px;
   text-align: center;
 }
 
@@ -80,6 +67,7 @@
   flex-wrap: wrap;
   width: 90%;
   margin: auto;
+  
 }
 
 .card {
@@ -105,7 +93,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
+  }
 .text-card{
     width: 23rem;
     min-height: 35vh;
@@ -205,5 +193,31 @@
 
 .card-container { 
   width: 100%;
+}
+}
+
+@media  screen and (max-width: 320px) {
+  .card {  
+    width: 16rem;
+    height: 35vh;
+  }
+
+  .text-card{
+    width: 12.5rem;
+    height:30vh;    
+    min-height: 20vh;
+  }
+
+.card-container { 
+  width: 100%;
+}
+
+.text-card p {
+  font-size: 1rem;
+  padding: 1.5rem;
+}
+
+.date-time p{
+  font-size: 0.8rem;
 }
 }
