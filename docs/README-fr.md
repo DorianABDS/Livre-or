@@ -23,7 +23,7 @@ Voici les principales fonctionnalités du site :
 ## ⚙️ Technologies Utilisées  
 Les technologies suivantes ont été utilisées pour construire le site :
 
-### 🎨 **Conception & Outils**
+### 🎨 **Conception**
 - [Trello](https://trello.com/fr)  
 - [Figma](https://www.figma.com/fr-fr/)  
 - [Lucidchart](https://www.lucidchart.com/pages/fr)  
