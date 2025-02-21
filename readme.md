@@ -7,7 +7,7 @@
 
 </div>
 
-## ✨ Project Overview  
+## ✨ Project Overview
 We worked on a one-week project during which we developed a full-stack website. This site serves as a **digital wedding guestbook**, allowing guests to **leave a message for the newlyweds** and view messages that have already been posted. The goal was to create a simple and elegant platform, providing the couple with a beautiful keepsake filled with messages from their loved ones.  
 
 ## 📌 Main Pages  
