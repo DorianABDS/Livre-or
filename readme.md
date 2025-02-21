@@ -23,7 +23,7 @@ Here are the main features of the website:
 ## ⚙️ Technologies Used  
 The following technologies were used to build the site:
 
-### 🎨 **Design & Tools**
+### 🎨 **Design**
 - [Trello](https://trello.com/fr)  
 - [Figma](https://www.figma.com/fr-fr/)  
 - [Lucidchart](https://www.lucidchart.com/pages/fr)  
