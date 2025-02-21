@@ -1,3 +1,7 @@
+.main{
+    min-height: 80vh;
+}
+
 .input{
     background-color: #f8efe9;
     border: 2px solid #eacec7;
@@ -43,7 +47,7 @@
     align-items: center;
 }
 
-.registration-bloc p{
+.profile-bloc p{
     margin: 0.8rem;
 
 }

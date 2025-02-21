@@ -83,5 +83,19 @@ class Comment extends Database
         return $stmt->fetch(PDO::FETCH_ASSOC)['total'];
     }
     
-
+    public function getUserComments($userId, $limit, $offset) {
+        $stmt = $this->db->prepare("
+            SELECT comment.*, user.login 
+            FROM comment 
+            JOIN user ON comment.id_user = user.id 
+            WHERE comment.id_user = :userId
+            ORDER BY comment.date DESC 
+            LIMIT :limit OFFSET :offset
+        ");
+        $stmt->bindValue(':userId', $userId, PDO::PARAM_INT);
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
