@@ -6,17 +6,17 @@
     background-color: #f8efe9;
     border: 2px solid #eacec7;
     width: 15rem;
-    padding: 0.8rem;
+    padding: 0.7rem;
     border-radius: 20px;
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
-    height: 4rem;
-    min-width: 18rem;
+    height: 3.5rem;
+    min-width: 16rem;
     font-size: 18px;
     margin: 0.5rem;    
     text-align: center;
 }
 
-.registration-bloc{
+.registration-bloc{    
     width:30%;
     height: 35rem;
     margin: auto;
@@ -27,6 +27,7 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin-top: 1rem;
 }
 
 .btn-link{
@@ -51,7 +52,9 @@
     margin: 0.8rem;
 
 }
-
+.txt{
+    margin :0.8rem 0;
+}
 .alert{
     padding-top: 2rem;
     font-size: 24px;

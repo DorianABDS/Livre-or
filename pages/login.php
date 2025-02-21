@@ -40,7 +40,7 @@ $newConnexion = $newCo->login();
                 <input class="input" type="text" name="login" id="login" value="" placeholder="Entrez votre pseudo" required><br /><br />                                 
                 <input class="input" type="password" name="password" id="password" value="" placeholder="Entrez votre mot de passe" required><br /><br />
                 <button type="submit" name="submit" class="button">Se connecter</button>
-                <p>OU</p>
+                <p class="txt">OU</p>
                 <a href="./register.php" class="button btn-link">S'inscrire</a>
                 <p class="alert"><?php if (isset($_SESSION['message'])) echo $_SESSION['message'] ?></p>
             </form>                
