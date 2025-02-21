@@ -121,84 +121,87 @@ h2 {
   }
  
 
-  @media  screen and (max-width: 1024px) {
-
-    .add-search{
-      flex-direction: column-reverse;
-    
-    }
-    
-    .btn-add-com{
-      font-size: 12.5px !important;
-    }
-    
-    .searchbar{
-      width: 12rem;
-      height:2.5rem;
-      padding: 0.6rem;
-    }
-    
-    .sections{
-      margin: 1rem 0;
-    }
-    
-    .search-btn{
-      height: 2.6rem;
-      width: 2.6rem;
-      margin-left: 0;
-    }
-    
-    .s1{
-      display: none;
-    }
-    }
-
-    @media  screen and (max-width: 767px) {
-      .input-box {
-    display:contents;
   
-    }
-    }
-    @media  screen and (max-width: 520px) {
 
+  
+    
+   
 
-    }
-    @media  screen and (max-width: 425px) {
-      .card {  
-        width: 20rem;
+    @media  screen and (max-width: 1024px) {
+
+      .add-search{
+        flex-direction: column-reverse;
+      
       }
-    
-      .text-card{
-        width: 17rem;
-        
-    }
-    
-    .card-container { 
-      width: 100%;
-    }
-    }
-    @media  screen and (max-width: 320px) {
-      .card {  
-        width: 16rem;
-        height: 35vh;
+      
+      .btn-add-com{
+        font-size: 12.5px !important;
       }
-    
-      .text-card{
-        width: 12.5rem;
-        height:30vh;    
-        min-height: 20vh;
+      
+      .searchbar{
+        width: 12rem;
+        height:2.5rem;
+        padding: 0.6rem;
       }
+      
+      .sections{
+        margin: 1rem 0;
+      }
+      
+      .search-btn{
+        height: 2.6rem;
+        width: 2.6rem;
+        margin-left: 0;
+      }
+      
+      .s1{
+        display: none;
+      }
+      }
+      @media  screen and (max-width: 767px) {
+        .input-box {
+      display:contents;
     
-    .card-container { 
-      width: 100%;
-    }
-    
-    .text-card p {
-      font-size: 1rem;
-      padding: 1.5rem;
-    }
-    
-    .date-time p{
-      font-size: 0.8rem;
-    }
-    }
+      }
+      }
+  
+      @media  screen and (max-width: 425px) {
+        .card {  
+          width: 20rem;
+        }
+      
+        .text-card{
+          width: 17rem;
+          
+      }
+      
+      .card-container { 
+        width: 100%;
+      }
+      }
+      
+      @media  screen and (max-width: 320px) {
+        .card {  
+          width: 16rem;
+          height: 35vh;
+        }
+      
+        .text-card{
+          width: 12.5rem;
+          height:30vh;    
+          min-height: 20vh;
+        }
+      
+      .card-container { 
+        width: 100%;
+      }
+      
+      .text-card p {
+        font-size: 1rem;
+        padding: 1.5rem;
+      }
+      
+      .date-time p{
+        font-size: 0.8rem;
+      }
+      }
