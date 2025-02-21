@@ -1,4 +1,8 @@
 
+
+.main{
+  min-height: 74.5vh;
+}
 .add-search{
   display: flex;
   align-items: center;
